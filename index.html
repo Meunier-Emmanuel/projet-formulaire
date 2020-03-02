@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/php/form.php">
+  <link rel="stylesheet" href="assets/css/web fonts/bellota_regular_macroman/stylesheet.css">
+  <script src="https://kit.fontawesome.com/78359e53be.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script defer src="assets/js/script.js"></script>
+
+  <title>Hackers Poulette</title>
+</head>
+
+<body>
+  <form class="container">
+    <div class="form-group col-md-12 text-center">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="gender" value="Madame">
+        <label class="form-check-label" for="gender">Madame</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="gender" value="Monsieur">
+        <label class="form-check-label" for="gender">Monsieur</label>
+      </div>
+
+      <div class="form-row mt-4">
+        <div class="form-group col-md-6">
+          <label for="inputNom">Nom</label>
+          <input type="text" class="form-control" id="inputNom">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPrenom">Prenom</label>
+          <input type="text" class="form-control" id="inputPrenom">
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="email@hotmail.com">
+      </div>
+      <div class="form-row  ">
+        <div class="form-group col-md-6 mt-4">
+          <label for="inputPays">Pays</label>
+          <select id="inputPays" class="form-control">
+            <option selected>Europe</option>
+            <option>Belgique</option>
+            <option>France</option>
+            <option>Suisse</option>
+            <option>Luxembourg</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6 mt-4">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+
+        <div class="form-group col-md-12 mt-4">
+          <div class="form-group">
+            <label for="message">Votre Message:</label>
+            <textarea class="form-control" style="height: 300px;" rows="14" id="message"
+              placeholder="Votre texte ici ..." name="message"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</body>
+
+</html>
