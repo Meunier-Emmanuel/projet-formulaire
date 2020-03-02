@@ -4,6 +4,17 @@ body {
   background-size: cover;
 }
 
+body .jumbotron {
+  padding: 0;
+  background: none;
+  color: #fff;
+  text-align: center;
+}
+
+body .jumbotron img {
+  width: 50%;
+}
+
 main {
   height: 700px;
   margin-bottom: 50px;
