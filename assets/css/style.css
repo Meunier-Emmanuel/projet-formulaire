@@ -2,7 +2,17 @@ body {
   font-family: "Bellota";
   background: url(/assets/img/fond-site.jpg) no-repeat center center fixed;
   background-size: cover;
+}
+
+body .jumbotron {
+  padding: 0;
+  background: none;
   color: #fff;
+  text-align: center;
+}
+
+body .jumbotron img {
+  width: 50%;
 }
 
 main {

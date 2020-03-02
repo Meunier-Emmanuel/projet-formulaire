@@ -5,11 +5,18 @@ $thirdColor: #303030;
 body {
     font-family: "Bellota";
     background: url(/assets/img/fond-site.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
-    color: $secondColor;
+
+    .jumbotron {
+        padding: 0;
+        background: none;
+        color: $secondColor;
+        text-align: center;
+
+        img {
+            width: 50%;
+        }
+    }
 }
 
 main {
