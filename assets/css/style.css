@@ -2,17 +2,7 @@ body {
   font-family: "Bellota";
   background: url(/assets/img/fond-site.jpg) no-repeat center center fixed;
   background-size: cover;
-}
-
-body .jumbotron {
-  padding: 0;
-  background: none;
   color: #fff;
-  text-align: center;
-}
-
-body .jumbotron img {
-  width: 50%;
 }
 
 main {
@@ -20,8 +10,22 @@ main {
   margin-bottom: 50px;
 }
 
-main h2 {
-  font-size: 150%;
+main .card-body {
+  text-align: right;
+}
+
+main .card-body button {
+  font-size: 200%;
+  color: #15c5bd;
+  background-color: #303030;
+  height: 45px;
+  width: 45px;
+  line-height: 20px;
+  border-radius: 75%;
+}
+
+main h5 {
+  color: #303030;
 }
 
 footer {
