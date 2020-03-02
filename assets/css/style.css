@@ -2,6 +2,7 @@ body {
   font-family: "Bellota";
   background: url(/assets/img/fond-site.jpg) no-repeat center center fixed;
   background-size: cover;
+  color: #fff;
 }
 
 main {
@@ -9,8 +10,22 @@ main {
   margin-bottom: 50px;
 }
 
-main h2 {
-  font-size: 150%;
+main .card-body {
+  text-align: right;
+}
+
+main .card-body button {
+  font-size: 200%;
+  color: #15c5bd;
+  background-color: #303030;
+  height: 45px;
+  width: 45px;
+  line-height: 20px;
+  border-radius: 75%;
+}
+
+main h5 {
+  color: #303030;
 }
 
 footer {
