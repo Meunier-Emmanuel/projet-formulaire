@@ -1,18 +1,55 @@
 <?php 
 
     $gender = $firstname = $lastname = $email =$country =$city =$subject = $message = "";
+    $genderError = $firstnameError = $lastnameError = $emailError =$countryError =$cityError =$subjectError = $messageError = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        $gender = verifyInput($_POST["gender"]);
         $firstname = verifyInput($_POST["firstname"]);
         $lastname = verifyInput($_POST["lastname"]);
         $email = verifyInput($_POST["email"]);
-        $country = verifyInput($_POST["country"]);
         $city = verifyInput($_POST["city"]);
-        $subject= verifyInput($_POST["subject"]);
         $message= verifyInput($_POST["message"]);
-    }
+        
+        // if($gender != "Madame" || $gender != "Monsieur")
+        // {
+        //   $genderError = "T'es binaire ? ";
+        // }
+        if (!isString($lastname))
+        {
+          $lastnameError = "Entre ton nom";
+        }
+        if (!isString($firstname))
+        {
+          $firstnameError = "Entre ton prénom";
+        }
+        
+        if(!isEmail($email))
+        {
+          $emailError = "Email invalide";
+        }
+        if (!isString($city))
+        {
+          $cityError = "Dans quelle ville habites-tu?";
+        }
+        if (!isString($message))
+        {
+          $messageError = "N'oublie pas d'entrer ton message";
+        }
+        
+        echo isString($lastname);
 
+
+
+    }
+    
+    function isString($var){
+      return filter_var($var,FILTER_SANITIZE_STRING);
+    }
+  
+    function isEmail($var){
+      return filter_var($var,FILTER_VALIDATE_EMAIL);
+    }
+    
     function verifyInput($var)
     {
       $var = trim ($var);
@@ -175,31 +212,36 @@
   <form class="container" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <div class="form-group col-md-12 text-center">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="gender" id="gender1" value="Madame">
+        <input class="form-check-input" type="radio" name="gender" id="gender1" value="Madame" <?php if(isset($_POST['gender']) && $_POST['gender'] == "Madame"  ) echo "checked='checked'"; ?>>
         <label class="form-check-label" for="gender1">Madame</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="gender" id="gender2" value="Monsieur">
+        <input class="form-check-input" type="radio" name="gender" id="gender2" value="Monsieur" <?php if(isset($_POST['gender']) && $_POST['gender'] == "Monsieur") echo "checked='checked'"; ?>>
         <label class="form-check-label" for="gender2">Monsieur</label>
       </div>
     </div>
+    <p class="text-center"><?php echo $genderError?></p>
+    
 
 
     <div class="form-row mt-4">
       <div class="form-group col-md-6">
         <label for="inputNom">Nom</label>
-        <input type="text" name="lastname" class="form-control" id="inputNom" value="<?php echo $lastname ?>">
+        <input type="text" name="lastname" class="form-control" id="inputNom" value="<?php echo $lastname ;?>">
+        <p><?php echo $lastnameError;?></p>
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPrenom">Prenom</label>
-        <input type="text" class="form-control" name="firstname" id="inputPrenom" value="<?php echo $firstname ?>">
+        <label for="inputPrenom">Prénom</label>
+        <input type="text" class="form-control" name="firstname" id="inputPrenom" value="<?php echo $firstname ;?>">
+        <p><?php echo $firstnameError;?></p>
       </div>
     </div>
 
     <div class="row">
       <div class="form-group mt-4 col-md-12">
         <label for="inputEmail">Email</label>
-        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="email@hotmail.com" value="<?php echo $email ?>">
+        <input type="text" name="email" class="form-control" id="inputEmail" placeholder="email@hotmail.com" value="<?php echo $email ;?>">
+        <p><?php echo $emailError;?></p>
       </div>
     </div>
 
@@ -208,10 +250,10 @@
         <label for="inputPays">Pays</label>
         <select name="country" id="inputPays" class="form-control"  value="<?php echo $country ?>">
           <optgroup label="Europe">
-            <option>Belgique</option>
-            <option>France</option>
-            <option>Suisse</option>
-            <option>Luxembourg</option>
+            <option  <?php if(isset($_POST['country']) && $_POST['country'] == "Belgique") echo "selected='selected'"; ?> >Belgique</option>
+            <option <?php if(isset($_POST['country']) && $_POST['country'] == "France") echo "selected='selected'"; ?> >France</option>
+            <option <?php if(isset($_POST['country']) && $_POST['country'] == "Suisse") echo "selected='selected'"; ?> >Suisse</option>
+            <option <?php if(isset($_POST['country']) && $_POST['country'] == "Luxembourg") echo "selected='selected'"; ?> >Luxembourg</option>
           </optgroup>
         </select>
       </div>
@@ -219,6 +261,7 @@
       <div class="form-group col-md-6 mt-4">
         <label for="inputCity">City</label>
         <input type="text" name ="city" class="form-control" id="inputCity" value="<?php echo $city ?>">
+        <p><?php echo $cityError?></p>
       </div>
     </div>
 
@@ -247,6 +290,7 @@
         <textarea class="form-control" style="height: 200px;" rows="14" id="message" placeholder="Votre texte ici ..."
           name="message"  value="<?php echo $message ?>"></textarea>
       </div>
+      <p><?php echo $messageError?></p>
     </div>
     <input type="submit" class="btn btn-primary col-md-2 text-center offset-10 " value="Envoyer">
   </form>
