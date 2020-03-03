@@ -109,7 +109,15 @@
 <!-- Body -->
 
 <body>
-
+<div class="animation-area">
+      <ul class="box-area">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
   <!-- Header -->
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -123,9 +131,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Technologie</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="#">Produits</a>
           </li>
@@ -137,6 +143,7 @@
     </nav>
   </header>
 
+    
   <!--Jumbotron-->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -144,7 +151,7 @@
       <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
     </div>
   </div>
-
+  
   <!-- section articles -->
   <main class="container product ">
     <div class="row h-50 justify-content-md-center justify-content-md-between">
@@ -321,7 +328,7 @@
       <a href="#"><i class="fa fa-linkedin fa-3x"></i></a>
       <a href="#"><i class="fa fa-google-plus fa-3x"></i></a>
     </div>
-
+    </div>
   </footer>
 
 
