@@ -1,3 +1,31 @@
+<?php 
+
+    $gender = $firstname = $lastname = $email =$country =$city =$subject = $message = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $gender = verifyInput($_POST["gender"]);
+        $firstname = verifyInput($_POST["firstname"]);
+        $lastname = verifyInput($_POST["lastname"]);
+        $email = verifyInput($_POST["email"]);
+        $country = verifyInput($_POST["country"]);
+        $city = verifyInput($_POST["city"]);
+        $subject= verifyInput($_POST["subject"]);
+        $message= verifyInput($_POST["message"]);
+    }
+
+    function verifyInput($var)
+    {
+      $var = trim ($var);
+      $var = stripslashes($var);
+      $var = htmlspecialchars($var);
+      return $var;
+    }
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="fr">
 
@@ -61,7 +89,7 @@
   <!--Jumbotron-->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <img src="/assets/img/logopoulette.png" alt="logo">
+      <img src="assets/img/logopoulette.png" alt="logo">
       <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
     </div>
   </div>
@@ -144,7 +172,7 @@
   </main>
 
   <!-- formulaire   -->
-  <form class="container">
+  <form class="container" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <div class="form-group col-md-12 text-center">
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="gender" id="gender1" value="Madame">
@@ -160,25 +188,25 @@
     <div class="form-row mt-4">
       <div class="form-group col-md-6">
         <label for="inputNom">Nom</label>
-        <input type="text" class="form-control" id="inputNom">
+        <input type="text" name="lastname" class="form-control" id="inputNom" value="<?php echo $lastname ?>">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPrenom">Prenom</label>
-        <input type="text" class="form-control" id="inputPrenom">
+        <input type="text" class="form-control" name="firstname" id="inputPrenom" value="<?php echo $firstname ?>">
       </div>
     </div>
 
     <div class="row">
       <div class="form-group mt-4 col-md-12">
         <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="email@hotmail.com">
+        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="email@hotmail.com" value="<?php echo $email ?>">
       </div>
     </div>
 
     <div class="form-row  ">
       <div class="form-group col-md-6 mt-4">
         <label for="inputPays">Pays</label>
-        <select id="inputPays" class="form-control">
+        <select name="country" id="inputPays" class="form-control"  value="<?php echo $country ?>">
           <optgroup label="Europe">
             <option>Belgique</option>
             <option>France</option>
@@ -190,14 +218,14 @@
 
       <div class="form-group col-md-6 mt-4">
         <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
+        <input type="text" name ="city" class="form-control" id="inputCity" value="<?php echo $city ?>">
       </div>
     </div>
 
     <div class="form-row  ">
       <div class="form-group col-md-12 py-0">
         <label for="subject">Sujet</label>
-        <select id="subject" class="form-control">
+        <select name ="subject" id="subject" class="form-control" value="<?php echo $subject ?>">
           <optgroup label="Technique">
             <option value="reclamation">Réclamation</option>
             <option value="remboursement">Remboursement</option>
@@ -217,10 +245,10 @@
       <div class="form-group">
         <label for="message">Votre Message:</label>
         <textarea class="form-control" style="height: 200px;" rows="14" id="message" placeholder="Votre texte ici ..."
-          name="message"></textarea>
+          name="message"  value="<?php echo $message ?>"></textarea>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary col-md-2 text-center offset-10">Envoyer</button>
+    <input type="submit" class="btn btn-primary col-md-2 text-center offset-10 " value="Envoyer">
   </form>
 
   <!-- footer  -->

@@ -1,7 +1,8 @@
 body {
   font-family: "Bellota";
-  background: url(/assets/img/fond-site.jpg) no-repeat center center fixed;
+  background: url(https://i.embed.ly/1/image?url=https%3A%2F%2Fstatic.nationalgeographic.co.uk%2Ffiles%2FSCI_Internet_101_UK%7E%7E%7E%7E%7Euk%7Emux%7E%7E1.jpg&key=c0f258539b9c4ab5bf044cd294d74ff1) no-repeat center center fixed;
   background-size: cover;
+  color: white;
 }
 
 body .jumbotron {
@@ -51,4 +52,5 @@ footer i {
   margin-left: 30px;
   padding-top: 16px;
 }
+
 /*# sourceMappingURL=style.css.map */

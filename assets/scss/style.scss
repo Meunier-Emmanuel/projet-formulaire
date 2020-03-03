@@ -6,6 +6,7 @@ body {
     font-family: "Bellota";
     background: url(/assets/img/fond-site.jpg) no-repeat center center fixed;
     background-size: cover;
+    color: white;
 
     .jumbotron {
         padding: 0;
@@ -17,6 +18,19 @@ body {
             width: 50%;
         }
     }
+}
+
+body::-webkit-scrollbar {
+    width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+    border: 7px solid $thirdColor;
+    box-shadow: inset 0 0 2.5px 2px $thirdColor;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient($primaryColor, $thirdColor);
 }
 
 main {
