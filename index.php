@@ -21,6 +21,12 @@
         {
           $genderError = "T'es binaire ? ";
         }
+        else 
+        {
+          $emailContent .= "nom : $lastname\n" ;
+        }
+
+        
         if (!isString($lastname) )
         {
           $lastnameError = "Entre ton nom";
@@ -30,7 +36,8 @@
         {
           $lastnameError = "C'est pas un nom ça !";
         }
-        else {
+        else 
+        {
           $emailContent .= "nom : $lastname\n" ;
         }
 
