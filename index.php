@@ -3,46 +3,87 @@
     $gender = $firstname = $lastname = $email =$country =$city =$subject = $message = "";
     $genderError = $firstnameError = $lastnameError = $emailError =$countryError =$cityError =$subjectError = $messageError = "";
     $isSucces = false;
-    
+    $emailTo = "meunieremmanuel@hotmail.com";
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $firstname = verifyInput($_POST["firstname"]);
         $lastname = verifyInput($_POST["lastname"]);
         $email = verifyInput($_POST["email"]);
+        $country = verifyInput($_POST["country"]);
         $city = verifyInput($_POST["city"]);
+        $subject = verifyInput($_POST["subject"]);
         $message= verifyInput($_POST["message"]);
         $isSucces = true;
+        $emailContent = "";
         
         // if($gender != "Madame" || $gender != "Monsieur")
         // {
         //   $genderError = "T'es binaire ? ";
         // }
-        if (!isString($lastname))
+        if (!isString($lastname) )
         {
           $lastnameError = "Entre ton nom";
           $isSucces = false;
         }
+        elseif (!preg_match("/^[a-zA-Z ]*$/",$lastname)) 
+        {
+          $lastnameError = "C'est pas un nom ça !";
+        }
+        else {
+          $emailContent .= "nom : $lastname\n" ;
+        }
+
         if (!isString($firstname))
         {
           $firstnameError = "Entre ton prénom";
           $isSucces = false;
         }
-        
+        elseif (!preg_match("/^[a-zA-Z ]*$/",$firstname)) 
+        {
+          $firstnameError = "C'est pas un prénom ça !";
+        }
+        else {
+          $emailContent .= "prénom : $firstname\n" ;
+        }
+
         if(!isEmail($email))
         {
           $emailError = "Email invalide";
           $isSucces = false;
         }
+        else {
+          $emailContent .= "email : $email\n" ;
+        }
+
+        if (empty($country))
+        {
+          $countryError = "N'oublie pas ton pays !";
+        }
+
         if (!isString($city))
         {
           $cityError = "Dans quelle ville habites-tu?";
           $isSucces = false;
         }
+        else {
+          $emailContent .= "Ville : $city\n" ;
+        }
+
+        if (empty($subject))
+        {
+          $subjectError = "N'oublie pas ton sujet !";
+        }
+
         if (!isString($message))
         {
           $messageError = "N'oublie pas d'entrer ton message";
           $isSucces = false;
         }
+
+        else {
+          $emailContent .= "message : $message\n" ;
+        }
+
         if ($isSucces)
         {
           //envoie email
@@ -271,12 +312,14 @@ alt="Card image cap">
         <label for="inputPays">Pays</label>
         <select name="country" id="inputPays" class="form-control"  value="<?php echo $country ?>">
           <optgroup label="Europe">
+            <option ></option>
             <option  <?php if(isset($_POST['country']) && $_POST['country'] == "Belgique") echo "selected='selected'"; ?> >Belgique</option>
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "France") echo "selected='selected'"; ?> >France</option>
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "Suisse") echo "selected='selected'"; ?> >Suisse</option>
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "Luxembourg") echo "selected='selected'"; ?> >Luxembourg</option>
           </optgroup>
         </select>
+        <p><?php echo $countryError?></p>
       </div>
 
       <div class="form-group col-md-6 mt-4">
@@ -290,6 +333,7 @@ alt="Card image cap">
       <div class="form-group col-md-12 py-0">
         <label for="subject">Sujet</label>
         <select name ="subject" id="subject" class="form-control" value="<?php echo $subject ?>">
+          <optgroup><option selected></option></optgroup>
           <optgroup label="Technique">
             <option value="reclamation">Réclamation</option>
             <option value="remboursement">Remboursement</option>
@@ -301,6 +345,7 @@ alt="Card image cap">
             <option value="achat-autres">Autres ...</option>
           </optgroup>
         </select>
+        <p><?php echo $subjectError?></p>
       </div>
     </div>
 
