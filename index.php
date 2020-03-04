@@ -294,7 +294,7 @@ alt="Card image cap">
         <label class="form-check-label" for="gender2">Monsieur</label>
       </div>
     </div>
-    <p class="text-center"><?php echo $genderError?></p>
+    <p class="text-center text-danger font-weight-bold"><?php echo $genderError?></p>
     
 
 
