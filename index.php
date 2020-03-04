@@ -5,7 +5,8 @@
     $isSucces = false;
     $emailTo = "meunieremmanuel@hotmail.com";
     if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
+    {   
+        $gender = verifyInput($_POST["gender"]);
         $firstname = verifyInput($_POST["firstname"]);
         $lastname = verifyInput($_POST["lastname"]);
         $email = verifyInput($_POST["email"]);
@@ -16,10 +17,10 @@
         $isSucces = true;
         $emailContent = "";
         
-        // if($gender != "Madame" || $gender != "Monsieur")
-        // {
-        //   $genderError = "T'es binaire ? ";
-        // }
+        if ($gender == "nul")
+        {
+          $genderError = "T'es binaire ? ";
+        }
         if (!isString($lastname) )
         {
           $lastnameError = "Entre ton nom";
@@ -59,9 +60,6 @@
         {
           $countryError = "N'oublie pas ton pays !";
         }
-        else {
-          $emailContent .= "pays : $country\n" ;
-        }
 
         if (!isString($city))
         {
@@ -76,10 +74,6 @@
         {
           $subjectError = "N'oublie pas ton sujet !";
         }
-        else {
-          $emailContent .= "sujet : $subject\n" ;
-        }
-
 
         if (!isString($message))
         {
@@ -281,6 +275,10 @@ alt="Card image cap">
   <form class="container" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <div class="form-group col-md-12 text-center">
       <div class="form-check form-check-inline">
+        <input checked style ="display:none"class="form-check-input" type="radio" name="gender" id="gender0" value="nul" <?php if(isset($_POST['gender']) && $_POST['gender'] == "nul"  ) echo "checked='checked'"; ?>>
+        <label class="form-check-label" for="gender0"></label>
+      </div>
+      <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="gender" id="gender1" value="Madame" <?php if(isset($_POST['gender']) && $_POST['gender'] == "Madame"  ) echo "checked='checked'"; ?>>
         <label class="form-check-label" for="gender1">Madame</label>
       </div>
@@ -342,14 +340,14 @@ alt="Card image cap">
         <select name ="subject" id="subject" class="form-control" value="<?php echo $subject ?>">
           <optgroup><option selected></option></optgroup>
           <optgroup label="Technique">
-            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Réclamation") echo "selected='selected'"; ?>>Réclamation</option>
-            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Remboursement") echo "selected='selected'"; ?>>Remboursement</option>
-            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Autres ...") echo "selected='selected'"; ?>>Autres ...</option>
+            <option value="reclamation">Réclamation</option>
+            <option value="remboursement">Remboursement</option>
+            <option value="technique-autres">Autres ...</option>
           </optgroup>
           <optgroup label="Achat">
-            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Lieu de vente") echo "selected='selected'"; ?>>Lieu de vente</option>
-            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Transport") echo "selected='selected'"; ?>>Transport</option>
-            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Autres ...") echo "selected='selected'"; ?>>Autres ...</option>
+            <option value="lieu-vente">Lieu de vente</option>
+            <option value="transport">Transport</option>
+            <option value="achat-autres">Autres ...</option>
           </optgroup>
         </select>
         <p><?php echo $subjectError?></p>
