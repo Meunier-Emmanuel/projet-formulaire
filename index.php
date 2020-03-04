@@ -2,7 +2,7 @@
 
     $gender = $firstname = $lastname = $email =$country =$city =$subject = $message = "";
     $genderError = $firstnameError = $lastnameError = $emailError =$countryError =$cityError =$subjectError = $messageError = "";
-    $isSucces = false;
+    $isSuccess = false;
     $emailTo = "meunieremmanuel@hotmail.com";
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -13,7 +13,7 @@
         $city = verifyInput($_POST["city"]);
         $subject = verifyInput($_POST["subject"]);
         $message= verifyInput($_POST["message"]);
-        $isSucces = true;
+        $isSuccess = true;
         $emailContent = "";
         
         // if($gender != "Madame" || $gender != "Monsieur")
@@ -23,7 +23,7 @@
         if (!isString($lastname) )
         {
           $lastnameError = "Entre ton nom";
-          $isSucces = false;
+          $isSuccess = false;
         }
         elseif (!preg_match("/^[a-zA-Z ]*$/",$lastname)) 
         {
@@ -36,7 +36,7 @@
         if (!isString($firstname))
         {
           $firstnameError = "Entre ton prénom";
-          $isSucces = false;
+          $isSuccess = false;
         }
         elseif (!preg_match("/^[a-zA-Z ]*$/",$firstname)) 
         {
@@ -49,7 +49,7 @@
         if(!isEmail($email))
         {
           $emailError = "Email invalide";
-          $isSucces = false;
+          $isSuccess = false;
         }
         else {
           $emailContent .= "email : $email\n" ;
@@ -57,13 +57,13 @@
 
         if (empty($country))
         {
-          $countryError = "N'oublie pas ton pays !";
+          $countryError = "N'oublies pas ton pays !";
         }
 
         if (!isString($city))
         {
-          $cityError = "Dans quelle ville habites-tu?";
-          $isSucces = false;
+          $cityError = "N'oublies pas ta ville !";
+          $isSuccess = false;
         }
         else {
           $emailContent .= "Ville : $city\n" ;
@@ -71,20 +71,20 @@
 
         if (empty($subject))
         {
-          $subjectError = "N'oublie pas ton sujet !";
+          $subjectError = "N'oublies pas ton sujet !";
         }
 
         if (!isString($message))
         {
-          $messageError = "N'oublie pas d'entrer ton message";
-          $isSucces = false;
+          $messageError = "N'oublies pas d'entrer ton message";
+          $isSuccess = false;
         }
 
         else {
           $emailContent .= "message : $message\n" ;
         }
 
-        if ($isSucces)
+        if ($isSuccess)
         {
           //envoie email
         }
@@ -290,12 +290,12 @@ alt="Card image cap">
       <div class="form-group col-md-6">
         <label for="inputNom">Nom</label>
         <input type="text" name="lastname" class="form-control" id="inputNom" value="<?php echo $lastname ;?>">
-        <p><?php echo $lastnameError;?></p>
+        <p class="text-danger font-weight-bold"><?php echo $lastnameError;?></p>
       </div>
       <div class="form-group col-md-6">
         <label for="inputPrenom">Prénom</label>
         <input type="text" class="form-control" name="firstname" id="inputPrenom" value="<?php echo $firstname ;?>">
-        <p><?php echo $firstnameError;?></p>
+        <p class="text-danger font-weight-bold"><?php echo $firstnameError;?></p>
       </div>
     </div>
 
@@ -303,7 +303,7 @@ alt="Card image cap">
       <div class="form-group mt-4 col-md-12">
         <label for="inputEmail">Email</label>
         <input type="text" name="email" class="form-control" id="inputEmail" placeholder="email@hotmail.com" value="<?php echo $email ;?>">
-        <p><?php echo $emailError;?></p>
+        <p class="text-danger font-weight-bold"><?php echo $emailError;?></p>
       </div>
     </div>
 
@@ -319,13 +319,13 @@ alt="Card image cap">
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "Luxembourg") echo "selected='selected'"; ?> >Luxembourg</option>
           </optgroup>
         </select>
-        <p><?php echo $countryError?></p>
+        <p class="text-danger font-weight-bold"><?php echo $countryError?></p>
       </div>
 
       <div class="form-group col-md-6 mt-4">
         <label for="inputCity">City</label>
         <input type="text" name ="city" class="form-control" id="inputCity" value="<?php echo $city ?>">
-        <p><?php echo $cityError?></p>
+        <p class="text-danger font-weight-bold"><?php echo $cityError?></p>
       </div>
     </div>
 
@@ -345,7 +345,7 @@ alt="Card image cap">
             <option value="achat-autres">Autres ...</option>
           </optgroup>
         </select>
-        <p><?php echo $subjectError?></p>
+        <p class="text-danger font-weight-bold"><?php echo $subjectError?></p>
       </div>
     </div>
 
@@ -356,11 +356,11 @@ alt="Card image cap">
         <textarea class="form-control" style="height: 200px;" rows="14" id="message" placeholder="Votre texte ici ..."
           name="message"  ><?php echo $message ?></textarea>
       </div>
-      <p><?php echo $messageError?></p>
+      <p class="text-danger font-weight-bold"><?php echo $messageError?></p>
     </div>
     <input type="submit" class="btn btn-primary col-2 text-center pull-right" value="Envoyer">
 
-    <p style="display:<?php if( $isSucces){echo "block";}else{echo"none";}?>">Votre message à bien été envoyé</p>
+    <p style="display:<?php if( $isSuccess){echo "block";}else{echo"none";}?>">Votre message à bien été envoyé</p>
   </form>
 
   <!-- footer  -->
