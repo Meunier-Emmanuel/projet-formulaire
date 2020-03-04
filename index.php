@@ -2,6 +2,8 @@
 
     $gender = $firstname = $lastname = $email =$country =$city =$subject = $message = "";
     $genderError = $firstnameError = $lastnameError = $emailError =$countryError =$cityError =$subjectError = $messageError = "";
+    $isSucces = false;
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $firstname = verifyInput($_POST["firstname"]);
@@ -9,6 +11,7 @@
         $email = verifyInput($_POST["email"]);
         $city = verifyInput($_POST["city"]);
         $message= verifyInput($_POST["message"]);
+        $isSucces = true;
         
         // if($gender != "Madame" || $gender != "Monsieur")
         // {
@@ -17,26 +20,34 @@
         if (!isString($lastname))
         {
           $lastnameError = "Entre ton nom";
+          $isSucces = false;
         }
         if (!isString($firstname))
         {
           $firstnameError = "Entre ton prénom";
+          $isSucces = false;
         }
         
         if(!isEmail($email))
         {
           $emailError = "Email invalide";
+          $isSucces = false;
         }
         if (!isString($city))
         {
           $cityError = "Dans quelle ville habites-tu?";
+          $isSucces = false;
         }
         if (!isString($message))
         {
           $messageError = "N'oublie pas d'entrer ton message";
+          $isSucces = false;
         }
-        
-        echo isString($lastname);
+        if ($isSucces)
+        {
+          //envoie email
+        }
+      
 
 
 
@@ -47,13 +58,16 @@
     }
   
     function isEmail($var){
-      return filter_var($var,FILTER_VALIDATE_EMAIL);
+      $var = filter_var($var,FILTER_SANITIZE_EMAIL);
+      $var =  filter_var($var,FILTER_VALIDATE_EMAIL);
+      return $var;
     }
     
     function verifyInput($var)
     {
       $var = trim ($var);
       $var = stripslashes($var);
+      $var = strip_tags($var);
       $var = htmlspecialchars($var);
       return $var;
     }
@@ -295,11 +309,17 @@
       <div class="form-group">
         <label for="message">Votre Message:</label>
         <textarea class="form-control" style="height: 200px;" rows="14" id="message" placeholder="Votre texte ici ..."
-          name="message"  value="<?php echo $message ?>"></textarea>
+          name="message"  ><?php echo $message ?></textarea>
       </div>
       <p><?php echo $messageError?></p>
     </div>
+<<<<<<< HEAD
     <input type="submit" class="btn btn-primary col-sm-2 text-center pull-right" value="Envoyer">
+=======
+    <input type="submit" class="btn btn-primary col-md-2 text-center offset-10 " value="Envoyer">
+
+    <p style="display:<?php if( $isSucces){echo "block";}else{echo"none";}?>">Votre message à bien été envoyé</p>
+>>>>>>> 172db21c33341207780ad4c00b55b53c98c4df80
   </form>
 
   <!-- footer  -->
