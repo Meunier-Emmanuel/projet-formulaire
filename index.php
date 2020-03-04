@@ -59,6 +59,9 @@
         {
           $countryError = "N'oublie pas ton pays !";
         }
+        else {
+          $emailContent .= "pays : $country\n" ;
+        }
 
         if (!isString($city))
         {
@@ -73,6 +76,10 @@
         {
           $subjectError = "N'oublie pas ton sujet !";
         }
+        else {
+          $emailContent .= "sujet : $subject\n" ;
+        }
+
 
         if (!isString($message))
         {
@@ -335,14 +342,14 @@ alt="Card image cap">
         <select name ="subject" id="subject" class="form-control" value="<?php echo $subject ?>">
           <optgroup><option selected></option></optgroup>
           <optgroup label="Technique">
-            <option value="reclamation">Réclamation</option>
-            <option value="remboursement">Remboursement</option>
-            <option value="technique-autres">Autres ...</option>
+            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Réclamation") echo "selected='selected'"; ?>>Réclamation</option>
+            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Remboursement") echo "selected='selected'"; ?>>Remboursement</option>
+            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Autres ...") echo "selected='selected'"; ?>>Autres ...</option>
           </optgroup>
           <optgroup label="Achat">
-            <option value="lieu-vente">Lieu de vente</option>
-            <option value="transport">Transport</option>
-            <option value="achat-autres">Autres ...</option>
+            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Lieu de vente") echo "selected='selected'"; ?>>Lieu de vente</option>
+            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Transport") echo "selected='selected'"; ?>>Transport</option>
+            <option <?php if(isset($_POST['subject']) && $_POST['subject'] == "Autres ...") echo "selected='selected'"; ?>>Autres ...</option>
           </optgroup>
         </select>
         <p><?php echo $subjectError?></p>
