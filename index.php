@@ -313,13 +313,9 @@
       </div>
       <p><?php echo $messageError?></p>
     </div>
-<<<<<<< HEAD
-    <input type="submit" class="btn btn-primary col-sm-2 text-center pull-right" value="Envoyer">
-=======
     <input type="submit" class="btn btn-primary col-md-2 text-center offset-10 " value="Envoyer">
 
     <p style="display:<?php if( $isSucces){echo "block";}else{echo"none";}?>">Votre message à bien été envoyé</p>
->>>>>>> 172db21c33341207780ad4c00b55b53c98c4df80
   </form>
 
   <!-- footer  -->
