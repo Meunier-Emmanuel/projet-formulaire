@@ -148,19 +148,19 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <img src="assets/img/logopoulette.png" alt="logo">
-      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <p class="lead">Enseigner, apprendre et créer avec Raspberry Pi.</p>
     </div>
   </div>
   
   <!-- section articles -->
   <main class="container product ">
-    <div class="row h-50 justify-content-md-center justify-content-md-between">
+    <div class="row h-50 justify-content-md-center justify-content-md-between mb-sm-4">
       <article class="col-md-3  ">
-        <div class="card ">
+        <div class="card mb-sm-4">
           <img class="card-img-top"
             src="https://www.raspberrypi.org/homepage-9df4b/static/1a8c2dea858d9a09b7382f569582a8c3/052d8/76d43bab-d6e5-479f-a31e-bea771589ed1_uk_white-.jpg"
             alt="Card image cap">
-          <div class="card-body text-center ">
+          <div class="card-body text-center mb-2">
             <h5>Raspberry Pi keyboard</h5>
             <button>+</button>
           </div>
@@ -168,7 +168,7 @@
       </article>
 
       <article class="col-md-3  ">
-        <div class="card ">
+        <div class="card mb-sm-4">
           <img class="card-img-top"
             src="https://www.raspberrypi.org/homepage-9df4b/static/b74d537a2af374e986f6d3d8dc3640cc/052d8/1b7d602e46d47ed9f540f364bb3fbf1985b10164_red_white-mouse.jpg"
             alt="Card image cap">
@@ -194,7 +194,7 @@
     </div>
     <div class=" row h-50 justify-content-md-center justify-content-md-between">
       <article class="col-md-3  ">
-        <div class="card ">
+        <div class="card mb-sm-4">
           <img class="card-img-top"
             src="https://www.raspberrypi.org/homepage-9df4b/static/8875c8b45499606103f45bb94a9d1902/052d8/94e326f3-1b92-450c-9fd5-23183797d30c_desktop%2Bkit%2Bcontents.jpg"
             alt="Card image cap">
@@ -205,7 +205,7 @@
         </div>
       </article>
       <article class="col-md-3   ">
-        <div class="card ">
+        <div class="card mb-sm-4">
           <img class="card-img-top"
             src="https://www.raspberrypi.org/homepage-9df4b/static/1be6f5c5c956bd6b0f2fe844ac9a1a29/052d8/b40e688ee64045b006cfe7875da3c42eb2d4bfe1_3a-1-1633x1080.jpg"
             alt="Card image cap">
@@ -313,7 +313,7 @@
       </div>
       <p><?php echo $messageError?></p>
     </div>
-    <input type="submit" class="btn btn-primary col-md-2 text-center offset-10 " value="Envoyer">
+    <input type="submit" class="btn btn-primary col-sm-2 text-center pull-right" value="Envoyer">
 
     <p style="display:<?php if( $isSucces){echo "block";}else{echo"none";}?>">Votre message à bien été envoyé</p>
   </form>
