@@ -171,7 +171,7 @@
       </ul>
   <!-- Header -->
   <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark ">
       <a class="navbar-brand" href="#">Hackers Poulette</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -180,14 +180,14 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="">Accueil<span class="sr-only">(current)</span></a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#">Produits</a>
+            <a class="nav-link" href="#Produits">Produits</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#Formulaire">Contact</a>
           </li>
         </ul>
       </div>
@@ -204,7 +204,7 @@
   </div>
   
   <!-- section articles -->
-<main class="container product ">
+<main class="container product " id= "Produits">
 <div class="row h-50 justify-content-md-center justify-content-md-between ">
 
 
@@ -321,7 +321,7 @@
 </main>
 
   <!-- formulaire   -->
-  <form class="container" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+  <form class="container" id="Formulaire" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <div class="form-group col-md-12 text-center">
       <div class="form-check form-check-inline">
         <input checked style ="display:none" class="form-check-input" type="radio" name="gender" id="gender0" value="nul" <?php if(isset($_POST['gender']) && $_POST['gender'] == "nul"  ) echo "checked='checked'"; ?>>
