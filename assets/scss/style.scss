@@ -178,10 +178,6 @@ footer {
   }
 }
 
-
-
-
-
 // card flip
 body {
   font-family: sans-serif;
@@ -213,9 +209,7 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 40px;
-
 }
-
 
 .card__face--back {
   transform: rotateY(180deg);
@@ -231,4 +225,14 @@ body {
   color: black;
   position: relative;
   bottom: 40px;
+}
+
+.ohnohoney {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
 }
