@@ -152,14 +152,23 @@ main {
 
 footer {
   margin-top: 100px;
-
+  padding-bottom: 80px;
   i {
-    height: 80px;
-    width: 80px;
+    -moz-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+    height: 60px;
+    width: 60px;
     color: $thirdColor;
     background-color: $primaryColor;
     border-radius: 50%;
     margin-left: 30px;
     padding-top: 16px;
+    margin-bottom: 15px;
+  }
+  i:hover {
+    color: $primaryColor;
+    background-color: $thirdColor;
   }
 }

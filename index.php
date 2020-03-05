@@ -378,12 +378,12 @@ alt="Card image cap">
   <!-- footer  -->
   <footer class="container text-center ">
     <div class="social-buttons">
-      <a href="#"><i class="fa fa-facebook-f fa-3x"></i></a>
-      <a href="#"><i class="fa fa-twitter fa-3x"></i></a>
-      <a href="#"><i class="fa fa-envelope fa-3x"></i></a>
-      <a href="#"><i class="fa fa-github fa-3x"></i></a>
-      <a href="#"><i class="fa fa-linkedin fa-3x"></i></a>
-      <a href="#"><i class="fa fa-google-plus fa-3x"></i></a>
+      <a href="#"><i class="fa fa-facebook-f fa-2x"></i></a>
+      <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+      <a href="#"><i class="fa fa-envelope fa-2x"></i></a>
+      <a href="#"><i class="fa fa-github fa-2x"></i></a>
+      <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
+      <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
     </div>
     </div>
   </footer>
