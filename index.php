@@ -136,9 +136,7 @@
   <meta name="description" content="">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/php/form.php">
-  <link rel="stylesheet" href="assets/css/webfonts/bellota_regular_macroman/stylesheet.css">
+
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -151,6 +149,9 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
   <script defer src="assets/js/script.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/php/form.php">
+  <link rel="stylesheet" href="assets/css/webfonts/bellota_regular_macroman/stylesheet.css">
 
   <title>Hackers Poulette</title>
 </head>
@@ -203,78 +204,118 @@
   
   <!-- section articles -->
 <main class="container product ">
-<div class="row h-50 justify-content-md-center justify-content-md-between mb-4">
-<article class="col-md-3 ">
-<div class="card mb-4">
-<img class="card-img-top"
-src="https://www.raspberrypi.org/homepage-9df4b/static/1a8c2dea858d9a09b7382f569582a8c3/052d8/76d43bab-d6e5-479f-a31e-bea771589ed1_uk_white-.jpg"
-alt="Card image cap">
-<div class="card-body text-center mb-2">
-<h5>Raspberry Pi keyboard</h5>
-<button>+</button>
-</div>
-</div>
-</article>
+<div class="row h-50 justify-content-md-center justify-content-md-between ">
 
-  <article class="col-md-3  ">
-    <div class="card mb-4">
-      <img class="card-img-top"
-        src="https://www.raspberrypi.org/homepage-9df4b/static/b74d537a2af374e986f6d3d8dc3640cc/052d8/1b7d602e46d47ed9f540f364bb3fbf1985b10164_red_white-mouse.jpg"
-        alt="Card image cap">
-      <div class="card-body text-center ">
-        <h5>Raspberry Pi mouse</h5>
-        <button>+</button>
+
+<article class="col-md-3  scene scene--card mb-4" >
+    <div class="card ">
+    <div class="card__face--front ">
+      <img class="card-img-top "
+      src="https://www.raspberrypi.org/homepage-9df4b/static/1a8c2dea858d9a09b7382f569582a8c3/052d8/76d43bab-d6e5-479f-a31e-bea771589ed1_uk_white-.jpg"
+        alt="Card image cap ">
+        <div class="card-body text-center mb-2">
+          <h5 class="hidden">Raspberry Pi keyboard</h5>
+          <button class="cardButton ">+</button>
+        </div>
+      <div class="card__face--back "> 
+        <p class="textCard text-center">The official Raspberry Pi keyboard includes three USB ports for connecting external devices, available in raspberry red and white, or black and grey</p>
       </div>
+    </div>
     </div>
   </article>
 
-  <article class="col-md-3  ">
+
+  <article class="col-md-3  scene scene--card mb-4" >
     <div class="card ">
-      <img class="card-img-top"
-        src="https://www.raspberrypi.org/homepage-9df4b/static/70a9c24e177931c573bbd0ffbe83285d/052d8/fee0c9fc6b839b879f64dc6e645d1b7b6b4b643a_770a9314-1.jpg"
-        alt="Card image cap">
-      <div class="card-body text-center ">
-        <h5>Raspberry Pi TV HAT</h5>
-        <button>+</button>
+    <div class="card__face--front ">
+      <img class="card-img-top "
+      src="https://www.raspberrypi.org/homepage-9df4b/static/b74d537a2af374e986f6d3d8dc3640cc/052d8/1b7d602e46d47ed9f540f364bb3fbf1985b10164_red_white-mouse.jpg"
+        alt="Card image cap ">
+        <div class="card-body text-center ">
+          <h5 class="hidden">Raspberry Pi mouse</h5>
+          <button class="cardButton ">+</button>
+        </div>
+      <div class="card__face--back hidden">
+      <p class="textCard text-center">The official Raspberry Pi mouse, available in raspberry red and white, or black and grey</p>
+
       </div>
+    </div>
+    </div>
+  </article>
+  
+  <article class="col-md-3  scene scene--card mb-4" >
+    <div class="card ">
+    <div class="card__face--front ">
+      <img class="card-img-top "
+        src="https://www.raspberrypi.org/homepage-9df4b/static/70a9c24e177931c573bbd0ffbe83285d/052d8/fee0c9fc6b839b879f64dc6e645d1b7b6b4b643a_770a9314-1.jpg"
+        alt="Card image cap ">
+        <div class="card-body text-center ">
+          <h5 class="hidden">Raspberry Pi TV HAT</h5>
+          <button class="cardButton ">+</button>
+        </div>
+      <div class="card__face--back hidden">
+      <p class="textCard text-center">This add-on board lets you receive digital DVB-T2 TV streams on your Raspberry Pi to view them or stream them over a network to other devices</p>
+      </div>
+    </div>
     </div>
   </article>
 
 </div>
 <div class=" row h-50 justify-content-md-center justify-content-md-between">
-  <article class="col-md-3  ">
+  <article class="col-md-3  scene scene--card mb-4" >
     <div class="card mb-4">
-      <img class="card-img-top"
-        src="https://www.raspberrypi.org/homepage-9df4b/static/8875c8b45499606103f45bb94a9d1902/052d8/94e326f3-1b92-450c-9fd5-23183797d30c_desktop%2Bkit%2Bcontents.jpg"
-        alt="Card image cap">
-      <div class="card-body text-center ">
-        <h5>Raspberry Camera Module V2</h5>
-        <button>+</button>
+    <div class="card__face--front ">
+      <img class="card-img-top "
+      src="https://www.raspberrypi.org/homepage-9df4b/static/8875c8b45499606103f45bb94a9d1902/052d8/94e326f3-1b92-450c-9fd5-23183797d30c_desktop%2Bkit%2Bcontents.jpg"
+        alt="Card image cap ">
+        <div class="card-body text-center mb-2">
+          <h5 class="hidden">Raspberry Camera Module V2</h5>
+          <button class="cardButton ">+</button>
+        </div>
+      <div class="card__face--back hidden">
+      <p class="textCard text-center">Full desktop computer kit - just connect to HDMI display(s)</p>
+
       </div>
     </div>
-  </article>
-  <article class="col-md-3   ">
-    <div class="card mb-4">
-      <img class="card-img-top"
-        src="https://www.raspberrypi.org/homepage-9df4b/static/1be6f5c5c956bd6b0f2fe844ac9a1a29/052d8/b40e688ee64045b006cfe7875da3c42eb2d4bfe1_3a-1-1633x1080.jpg"
-        alt="Card image cap">
-      <div class="card-body text-center ">
-        <h5>Raspberry Pi 3 Model A+</h5>
-        <button>+</button>
-      </div>
     </div>
   </article>
-  <article class="col-md-3   ">
+
+  <article class="col-md-3  scene scene--card mb-4" >
     <div class="card ">
-      <img class="card-img-top"
-        src="https://www.raspberrypi.org/homepage-9df4b/static/b1d5a4a2c633594b831a9c5317686208/052d8/3badd41e-0642-4ae9-b2a8-fdc89c866e5f_MAG22%2B3rd%2B(open).jpg"
-        alt="Card image cap">
-      <div class="card-body text-center ">
-        <h5>Official Beginner's Guide</h5>
-        <button>+</button>
+    <div class="card__face--front ">
+      <img class="card-img-top "
+        src="https://www.raspberrypi.org/homepage-9df4b/static/1be6f5c5c956bd6b0f2fe844ac9a1a29/052d8/b40e688ee64045b006cfe7875da3c42eb2d4bfe1_3a-1-1633x1080.jpg"
+        alt="Card image cap ">
+        <div class="card-body text-center ">
+          <h5 class="hidden">Raspberry Pi 3 Model A+</h5>
+          <button class="cardButton ">+</button>
+        </div>
+      <div class="card__face--back hidden">
+      <p class="textCard text-center">1.4GHz 64-bit quad-core processor, dual-band wireless LAN, Bluetooth 4.2/BLE in the same mechanical format as the Raspberry Pi 1 Model A+</p>
+
       </div>
     </div>
+    </div>
   </article>
+
+  <article class="col-md-3  scene scene--card mb-4" >
+    <div class="card ">
+    <div class="card__face--front ">
+      <img class="card-img-top "
+        src="https://www.raspberrypi.org/homepage-9df4b/static/b1d5a4a2c633594b831a9c5317686208/052d8/3badd41e-0642-4ae9-b2a8-fdc89c866e5f_MAG22%2B3rd%2B(open).jpg"
+        alt="Card image cap ">
+        <div class="card-body text-center ">
+          <h5 class="hidden">Official Beginner's Guide</h5>
+          <button class="cardButton ">+</button>
+        </div>
+      <div class="card__face--back hidden">
+      <p class="textCard text-center" >Fully updated for Raspberry Pi 4.</p>
+
+      </div>
+    </div>
+    </div>
+  </article>
+
 </div>
 </main>
 
