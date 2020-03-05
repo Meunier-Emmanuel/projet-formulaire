@@ -91,10 +91,11 @@
         else {
           $emailContent .= "message : $message\n" ;
         }
-
+        
         if ($isSuccess)
         {
-          //envoie email
+          $headers = "From: $lastname <$email}>\r\nReply-To: $email";
+            mail($emailTo, "Un message de votre site", $emailText, $headers);
         }
       
 
@@ -323,7 +324,7 @@
   <form class="container" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <div class="form-group col-md-12 text-center">
       <div class="form-check form-check-inline">
-        <input checked style ="display:none"class="form-check-input" type="radio" name="gender" id="gender0" value="nul" <?php if(isset($_POST['gender']) && $_POST['gender'] == "nul"  ) echo "checked='checked'"; ?>>
+        <input checked style ="display:none" class="form-check-input" type="radio" name="gender" id="gender0" value="nul" <?php if(isset($_POST['gender']) && $_POST['gender'] == "nul"  ) echo "checked='checked'"; ?>>
         <label class="form-check-label" for="gender0"></label>
       </div>
       <div class="form-check form-check-inline">
