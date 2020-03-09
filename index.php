@@ -374,7 +374,7 @@
         <label for="inputPays">Pays</label>
         <select name="country" id="inputPays" class="form-control"  >
           <optgroup label="Europe">
-            <option label="empty">  </option>
+            <option label=" ">  </option>
             <option  <?php if(isset($_POST['country']) && $_POST['country'] == "Belgique") echo "selected='selected'"; ?> >Belgique</option>
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "France") echo "selected='selected'"; ?> >France</option>
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "Suisse") echo "selected='selected'"; ?> >Suisse</option>
@@ -395,7 +395,7 @@
       <div class="form-group col-md-12 py-0">
         <label for="subject">Sujet</label>
         <select name ="subject" id="subject" class="form-control">
-          <optgroup label="empty"><option  label="empty" selected> </option></optgroup>
+          <optgroup label=" "><option  label=" " selected> </option></optgroup>
           <optgroup label="Technique">
             <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Réclamation") echo "selected='selected'"; ?>>Réclamation</option>
             <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Remboursement") echo "selected='selected'"; ?>>Remboursement</option>
