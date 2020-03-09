@@ -10,13 +10,16 @@
 
 
 
-
-
-
 ### Objectif : Sanitiser un formulaire
 
 #### Outils utilisés :
-Wamp, HTML, CSS (SASS), JS, PHP, Git.
+
+*Wamp 
+*HTML
+*CSS (SASS)
+*JS
+*PHP
+*Git
 
 
 #### Difficultés rencontrées : 
