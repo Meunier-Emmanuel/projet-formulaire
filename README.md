@@ -14,12 +14,12 @@
 
 #### Outils utilisés :
 
-*Wamp 
-*HTML
-*CSS (SASS)
-*JS
-*PHP
-*Git
+* Wamp 
+* HTML
+* CSS (SASS)
+* JS
+* PHP
+* Git
 
 
 #### Difficultés rencontrées : 
@@ -33,7 +33,3 @@ Vider le cache régulièrement
 Utilisation de Wamp
 Récupération d'informations
 Sanitisation d'un formulaire
-
-
-
-
