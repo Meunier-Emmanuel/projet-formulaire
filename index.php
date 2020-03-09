@@ -1,8 +1,9 @@
 <?php 
 
-    $gender = $firstname = $lastname = $email =$country =$city =$subject = $message = "";
+    $firstname = $lastname = $email =$country =$city =$subject = $message = $random = "";
     $genderError = $firstnameError = $lastnameError = $emailError =$countryError =$cityError =$subjectError = $messageError = "";
     $isSuccess = false;
+    $gender = null;
     $emailTo = "meunieremmanuel@hotmail.com";
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {   
@@ -14,10 +15,12 @@
         $city = verifyInput($_POST["city"]);
         $subject = verifyInput($_POST["subject"]);
         $message= verifyInput($_POST["message"]);
+        $random= verifyInput($_POST["random"]);
         $isSuccess = true;
         $emailContent = "";
-        
-        if ($gender == "nul")
+      if(empty($random)){
+
+        if ($gender == "null")
         {
           $genderError = "T'es binaire ? ";
         }
@@ -97,7 +100,11 @@
           $headers = "From: $lastname <$email}>\r\nReply-To: $email";
             mail($emailTo, "Un message de votre site", $emailText, $headers);
         }
-      
+      }
+      else
+      {
+        echo "you are a bot";
+      }
 
 
 
@@ -169,6 +176,7 @@
         <li></li>
         <li></li>
       </ul>
+  
   <!-- Header -->
   <header>
     <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark ">
@@ -198,13 +206,13 @@
   <!--Jumbotron-->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <img src="assets/img/logopoulette.png" alt="logo">
+      <img src="assets/img/logopoulette.png" alt="logo HackersPoulette">
       <p class="lead">Enseigner, apprendre et créer avec Raspberry Pi.</p>
     </div>
   </div>
   
   <!-- section articles -->
-<main class="container product " id= "Produits">
+<main class="container product " id= "Produits" >
 <div class="row h-50 justify-content-md-center justify-content-md-between ">
 
 
@@ -213,7 +221,7 @@
     <div class="card__face--front ">
       <img class="card-img-top "
       src="https://www.raspberrypi.org/homepage-9df4b/static/1a8c2dea858d9a09b7382f569582a8c3/052d8/76d43bab-d6e5-479f-a31e-bea771589ed1_uk_white-.jpg"
-        alt="Card image cap ">
+        alt="Card Raspberry Pi keyboard ">
         <div class="card-body text-center mb-2">
           <h5 class="hidden">Raspberry Pi keyboard</h5>
           <button class="cardButton ">+</button>
@@ -231,7 +239,7 @@
     <div class="card__face--front ">
       <img class="card-img-top "
       src="https://www.raspberrypi.org/homepage-9df4b/static/b74d537a2af374e986f6d3d8dc3640cc/052d8/1b7d602e46d47ed9f540f364bb3fbf1985b10164_red_white-mouse.jpg"
-        alt="Card image cap ">
+        alt="Card Raspberry Pi mouse ">
         <div class="card-body text-center ">
           <h5 class="hidden">Raspberry Pi mouse</h5>
           <button class="cardButton ">+</button>
@@ -249,7 +257,7 @@
     <div class="card__face--front ">
       <img class="card-img-top "
         src="https://www.raspberrypi.org/homepage-9df4b/static/70a9c24e177931c573bbd0ffbe83285d/052d8/fee0c9fc6b839b879f64dc6e645d1b7b6b4b643a_770a9314-1.jpg"
-        alt="Card image cap ">
+        alt="Raspberry Pi TV HAT ">
         <div class="card-body text-center ">
           <h5 class="hidden">Raspberry Pi TV HAT</h5>
           <button class="cardButton ">+</button>
@@ -268,7 +276,7 @@
     <div class="card__face--front ">
       <img class="card-img-top "
       src="https://www.raspberrypi.org/homepage-9df4b/static/8875c8b45499606103f45bb94a9d1902/052d8/94e326f3-1b92-450c-9fd5-23183797d30c_desktop%2Bkit%2Bcontents.jpg"
-        alt="Card image cap ">
+        alt="Raspberry Camera Module V2 ">
         <div class="card-body text-center mb-2">
           <h5 class="hidden">Raspberry Camera Module V2</h5>
           <button class="cardButton ">+</button>
@@ -286,7 +294,7 @@
     <div class="card__face--front ">
       <img class="card-img-top "
         src="https://www.raspberrypi.org/homepage-9df4b/static/1be6f5c5c956bd6b0f2fe844ac9a1a29/052d8/b40e688ee64045b006cfe7875da3c42eb2d4bfe1_3a-1-1633x1080.jpg"
-        alt="Card image cap ">
+        alt="Raspberry Pi 3 Model A+">
         <div class="card-body text-center ">
           <h5 class="hidden">Raspberry Pi 3 Model A+</h5>
           <button class="cardButton ">+</button>
@@ -304,7 +312,7 @@
     <div class="card__face--front ">
       <img class="card-img-top "
         src="https://www.raspberrypi.org/homepage-9df4b/static/b1d5a4a2c633594b831a9c5317686208/052d8/3badd41e-0642-4ae9-b2a8-fdc89c866e5f_MAG22%2B3rd%2B(open).jpg"
-        alt="Card image cap ">
+        alt="Official Beginner's Guide">
         <div class="card-body text-center ">
           <h5 class="hidden">Official Beginner's Guide</h5>
           <button class="cardButton ">+</button>
@@ -324,15 +332,15 @@
   <form class="container" id="Formulaire" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <div class="form-group col-md-12 text-center">
       <div class="form-check form-check-inline">
-        <input checked style ="display:none" class="form-check-input" type="radio" name="gender" id="gender0" value="nul" <?php if(isset($_POST['gender']) && $_POST['gender'] == "nul"  ) echo "checked='checked'"; ?>>
+        <input checked style ="display:none" class="form-check-input" type="radio" name="gender" id="gender0" value="null">
         <label class="form-check-label" for="gender0"></label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="gender" id="gender1" value="Madame" <?php if(isset($_POST['gender']) && $_POST['gender'] == "Madame"  ) echo "checked='checked'"; ?>>
+        <input class="form-check-input" type="radio" name="gender" id="gender1" value="Madame" <?php if(isset($_POST['gender']) && $_POST['gender'] == "Madame"  ) echo "checked"; ?>>
         <label class="form-check-label" for="gender1">Madame</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="gender" id="gender2" value="Monsieur" <?php if(isset($_POST['gender']) && $_POST['gender'] == "Monsieur") echo "checked='checked'"; ?>>
+        <input class="form-check-input" type="radio" name="gender" id="gender2" value="Monsieur" <?php if(isset($_POST['gender']) && $_POST['gender'] == "Monsieur") echo "checked"; ?>>
         <label class="form-check-label" for="gender2">Monsieur</label>
       </div>
     </div>
@@ -364,9 +372,9 @@
     <div class="form-row  ">
       <div class="form-group col-md-6 mt-4">
         <label for="inputPays">Pays</label>
-        <select name="country" id="inputPays" class="form-control"  value="<?php echo $country ?>">
+        <select name="country" id="inputPays" class="form-control"  >
           <optgroup label="Europe">
-            <option ></option>
+            <option label="empty">  </option>
             <option  <?php if(isset($_POST['country']) && $_POST['country'] == "Belgique") echo "selected='selected'"; ?> >Belgique</option>
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "France") echo "selected='selected'"; ?> >France</option>
             <option <?php if(isset($_POST['country']) && $_POST['country'] == "Suisse") echo "selected='selected'"; ?> >Suisse</option>
@@ -386,17 +394,17 @@
     <div class="form-row  ">
       <div class="form-group col-md-12 py-0">
         <label for="subject">Sujet</label>
-        <select name ="subject" id="subject" class="form-control" value="<?php echo $subject ?>">
-          <optgroup><option selected></option></optgroup>
+        <select name ="subject" id="subject" class="form-control">
+          <optgroup label="empty"><option  label="empty" selected> </option></optgroup>
           <optgroup label="Technique">
-            <option value="reclamation">Réclamation</option>
-            <option value="remboursement">Remboursement</option>
-            <option value="technique-autres">Autres ...</option>
+            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Réclamation") echo "selected='selected'"; ?>>Réclamation</option>
+            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Remboursement") echo "selected='selected'"; ?>>Remboursement</option>
+            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Autres ...") echo "selected='selected'"; ?>>Autres ...</option>
           </optgroup>
           <optgroup label="Achat">
-            <option value="lieu-vente">Lieu de vente</option>
-            <option value="transport">Transport</option>
-            <option value="achat-autres">Autres ...</option>
+            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Lieu de vente") echo "selected='selected'"; ?>>Lieu de vente</option>
+            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Transport") echo "selected='selected'"; ?>>Transport</option>
+            <option  <?php if(isset($_POST['subject']) && $_POST['subject'] == "Autres ...") echo "selected='selected'"; ?>>Autres ...</option>
           </optgroup>
         </select>
         <p class="text-danger font-weight-bold"><?php echo $subjectError?></p>
@@ -414,6 +422,8 @@
     </div>
     <input type="submit" class="btn btn-primary col-2 text-center pull-right" value="Envoyer">
 
+    <label class="ohnohoney" for="random"></label>
+    <input class="ohnohoney" autocomplete="off" type="text" id="random" name="random" placeholder="Don't spam me">
     <p style="display:<?php if( $isSuccess){echo "block";}else{echo"none";}?>">Votre message à bien été envoyé</p>
   </form>
 
@@ -427,10 +437,9 @@
       <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
       <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
     </div>
-    </div>
   </footer>
 
-
+  </div>
 </body>
 
 </html>
